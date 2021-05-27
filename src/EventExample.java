@@ -1,3 +1,6 @@
+
+import java.awt.event.KeyEvent;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -39,6 +42,12 @@ public class EventExample extends java.awt.Frame {
             }
         });
         setLayout(null);
+
+        textField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                textField1KeyPressed(evt);
+            }
+        });
         add(textField1);
         textField1.setBounds(110, 60, 260, 30);
 
@@ -83,6 +92,16 @@ public class EventExample extends java.awt.Frame {
             setTitle("MUMBAI");
         }
     }//GEN-LAST:event_chItemStateChanged
+
+    private void textField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField1KeyPressed
+        // TODO add your handling code here:
+        int code=evt.getKeyCode();
+        setTitle(""+code);
+        if(code==KeyEvent.VK_ESCAPE){
+            setTitle("CODE "+code);
+            textField1.setText(" ");
+        }
+    }//GEN-LAST:event_textField1KeyPressed
 
     /**
      * @param args the command line arguments
