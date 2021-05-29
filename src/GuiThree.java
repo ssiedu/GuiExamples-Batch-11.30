@@ -1,6 +1,7 @@
 
 import java.awt.Button;
 import java.awt.Choice;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.TextField;
@@ -12,10 +13,15 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.TextEvent;
 import java.awt.event.TextListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
-public class GuiThree extends Frame implements ActionListener, ItemListener, TextListener, FocusListener, KeyListener {
+
+public class GuiThree extends Frame implements ActionListener, ItemListener, TextListener, FocusListener, KeyListener, MouseListener, WindowListener {
 
     public GuiThree() {
         initComponents();
@@ -43,6 +49,9 @@ public class GuiThree extends Frame implements ActionListener, ItemListener, Tex
         t1.addTextListener(this);
         b2.addFocusListener(this);
         t1.addKeyListener(this);
+        t1.addMouseListener(this);
+        addWindowListener(this);
+        
     }
 
     public static void main(String[] args) {
@@ -132,6 +141,66 @@ public class GuiThree extends Frame implements ActionListener, ItemListener, Tex
 
     @Override
     public void keyReleased(KeyEvent e) {
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        setTitle("Hello User");
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        setTitle("");
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        t1.setBackground(Color.yellow);
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        t1.setBackground(Color.white);
+    }
+
+    @Override
+    public void windowOpened(WindowEvent e) {
+        setTitle("WELCOME TO OUR APPLICATION...");
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+        System.exit(0);
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+        
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+        setTitle("Stop....");
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+        setTitle("Start....");
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+        setBackground(Color.white);
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+        setBackground(Color.red);
     }
 }
 /*
